@@ -2,30 +2,44 @@
 <html lang="en">
 
 <head>
+  <!-- ======================================== -->
+  <!-- ============ Metadata Section ========== -->
+  <!-- ======================================== -->
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Heart Attack Prediction</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta name="description" content="AI tool for predicting heart attack risk using retinal images">
+  <meta name="keywords" content="heart attack, prediction, retinal images, AI">
 
-  <!-- Favicons -->
+  <!-- ======================================== -->
+  <!-- ============= Favicon Files =========== -->
+  <!-- ======================================== -->
   <link href="../static/img/favicon.png" rel="icon">
   <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+  <!-- ======================================== -->
+  <!-- ============ Google Fonts ============= -->
+  <!-- ======================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?
+    family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&
+    family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&
+    family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <!-- ======================================== -->
+  <!-- ============ Vendor CSS Files ========= -->
+  <!-- ======================================== -->
   <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../static/vendor/aos/aos.css" rel="stylesheet">
   <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Variables CSS Files. Uncomment your preferred color scheme -->
+  <!-- ======================================== -->
+  <!-- ======= Theme Variables (Color Schemes) === -->
+  <!-- Uncomment one to apply different color themes -->
   <!-- <link href="../static/css/variables.css" rel="stylesheet"> -->
   <!-- <link href="../static/css/variables-blue.css" rel="stylesheet"> -->
   <!-- <link href="../static/css/variables-green.css" rel="stylesheet"> -->
@@ -34,117 +48,104 @@
   <link href="../static/css/variables-red.css" rel="stylesheet">
   <!-- <link href="../static/css/variables-pink.css" rel="stylesheet"> -->
 
-  <!-- Template Main CSS File -->
+  <!-- ======================================== -->
+  <!-- ======= Main Stylesheet ========= -->
+  <!-- ======================================== -->
   <link href="../static/css/main.css" rel="stylesheet">
-  <!-- =======================================================
-  * Template Name: Restaurantly - v3.0.1
-  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-        <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="{{ url_for('static', filename='css/main1.css') }}" rel="stylesheet">
+
+  <!-- ======================================== -->
+  <!-- ==== Bootstrap 4 Fallback (optional) == -->
+  <!-- ======================================== -->
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
- 
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-cente">
+  <!-- ======================================== -->
+  <!-- ============ Header Section ============ -->
+  <!-- ======================================== -->
+  <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="col-lg-8"><a href="index.html"> <span>Heart Attack Prediction</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="../static/img/logo.png" alt="" class="img-fluid"></a>-->
+      <!-- Site Logo / Title -->
+      <h1 class="logo m-0">
+        <a href="{{ url_for('first') }}">Heart Attack Prediction</a>
+      </h1>
 
-      
+      <!-- ===== Navigation Menu ===== -->
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="{{ url_for('first')}}">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
-		    <li><a class="nav-link scrollto" href="{{ url_for('upload')}}">upload</a></li>
-           
-		  <li class="dropdown"><a href="#"><span>prediction</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="{{ url_for('index')}}">Prediction</a></li>
-                    
-                </ul>
-              </li>
-			    <li class="dropdown"><a href="#"><span>Analysis</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="{{ url_for('chart')}}">Chart</a></li>
-                
-                </ul>
-              </li>
-		 
-           
-           </ul>
-          
-       
-     </nav>
-     
+          <li><a class="nav-link scrollto" href="{{ url_for('first') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('login') }}">Login</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('upload') }}">Upload</a></li>
+          <li class="dropdown">
+            <a href="#"><span>Prediction</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ url_for('index') }}">Run Prediction</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#"><span>Analysis</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ url_for('chart') }}">View Charts</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- End Navigation -->
     </div>
   </header><!-- End Header -->
 
+  <!-- Spacer for fixed header -->
+  <div style="margin-top: 80px;"></div>
+
+  <!-- ======================================== -->
+  <!-- ======= Hero Animated Section ========= -->
+  <!-- ======================================== -->
   <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-      <img src="../static/img/hero-carousel/hero-carousel-3.jpg" class="img-fluid animated">
+      <!-- Hero Image -->
+      <img src="../static/img/hero-carousel/hero-carousel-3.jpg" class="img-fluid animated" alt="Retinal Scan">
       <h2>Welcome to <span>Heart Attack Predictor</span></h2>
-      <p>An artificial intelligence tool that scans eyes can accurately predict a person's risk of heart disease in less than a minute.</p>
+      <p>An AI tool that scans eyes to predict heart disease risk in under a minute.</p>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="https://www.youtube.com/channel/UCTw7pQ1y5AF1U24NVZTgkkg/videos" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+        <a href="https://www.youtube.com/channel/UCTw7pQ1y5AF1U24NVZTgkkg/videos" class="glightbox btn-watch-video d-flex align-items-center">
+          <i class="bi bi-play-circle"></i><span>Watch Video</span>
+        </a>
       </div>
     </div>
-  </section>
+  </section><!-- End Hero Animated -->
 
+  <!-- ======================================== -->
+  <!-- ============ Content Section ========== -->
+  <!-- ======================================== -->
+  <div class="container mt-5">
+    <!-- Main content injected via Flask block -->
+    <div id="content">{% block content %}{% endblock %}</div>
+  </div>
 
-
-
-
-
-    <div class="container">
-        <div id="content" style="margin-top:2em">{% block content %}{% endblock %}</div>
-    </div>
-</body>
-
-<footer>
-
-    <script src="{{ url_for('static', filename='js/main1.js') }}" type="text/javascript"></script>
-</footer>
-
-
-
-
-
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-     
-
-    <div class="container">
-      <div class="copyright">
-        
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
-         
-      </div>
+  <!-- ======================================== -->
+  <!-- ============ Footer Section =========== -->
+  <!-- ======================================== -->
+  <footer id="footer" class="bg-dark text-light py-4">
+    <div class="container text-center">
+      <small>&copy; 2025 RetinaScope Project. All Rights Reserved.</small>
     </div>
   </footer><!-- End Footer -->
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- ======================================== -->
+  <!-- ======= Additional Scripts ========= -->
+  <!-- ======================================== -->
+  <script src="{{ url_for('static', filename='js/main1.js') }}"></script>
 
-  <!-- Vendor JS Files -->
+  <!-- ======================================== -->
+  <!-- ======= Vendor JS Files ============== -->
+  <!-- ======================================== -->
   <script src="../static/vendor/aos/aos.js"></script>
   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
@@ -152,5 +153,6 @@
   <script src="../static/vendor/php-email-form/validate.js"></script>
   <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="../static/js/main.js"></script>
+</body>
+
+</html>

@@ -2,25 +2,30 @@
 <html lang="en">
 
 <head>
+  <!-- ======================================== -->
+  <!-- ============ Metadata Section ========== -->
+  <!-- ======================================== -->
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Heart Attack Prediction using Retinal Images</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta name="description" content="AI-driven heart attack risk prediction from retinal images">
+  <meta name="keywords" content="heart attack, retinal images, prediction, AI">
 
-  <!-- Favicons -->
+  <!-- ======================================== -->
+  <!-- ============= Favicon Files =========== -->
+  <!-- ======================================== -->
   <link href="../static/img/favicon.png" rel="icon">
   <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- ======================================== -->
+  <!-- ============ Google Fonts ============= -->
+  <!-- ======================================== -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Raleway:300,400,500,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
 
-  
-
-
-
-<!-- Vendor CSS Files -->
+  <!-- ======================================== -->
+  <!-- ============ Vendor CSS Files ========= -->
+  <!-- ======================================== -->
   <link href="../static/vendor/aos/aos.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -28,61 +33,45 @@
   <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- ======================================== -->
+  <!-- ======= Main Stylesheet ================ -->
+  <!-- ======================================== -->
   <link href="../static/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Squadfree - v4.6.0
-  * Template URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-
-
 </head>
 
 <body>
 
-<!-- ======= Top Bar ======= -->
-  
-  <!-- ======= Header ======= -->
+  <!-- ======================================== -->
+  <!-- ============ Header Section ============ -->
+  <!-- ======================================== -->
   <header id="header" class="fixed-top header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
+      <!-- Logo / Title -->
+      <h1 class="logo text-light m-0">
+        <a href="{{ url_for('first') }}"><span>Heart Attack Prediction</span></a>
+      </h1>
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>Heart Attack Prediction</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-
+      <!-- Navigation Menu -->
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{ url_for('first')}}">Home</a></li>
-           
-          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
-
-<li><a class="nav-link scrollto" href="{{ url_for('upload')}}">Clustering</a></li>
-
-
-          <li><a class="nav-link scrollto" href="{{ url_for('index')}}">Prediction</a></li>
-
-
-          <li><a class="nav-link scrollto" href="{{ url_for('chart')}}">Analysis</a></li>
-
-		         
-        
+          <li><a class="nav-link scrollto active" href="{{ url_for('first') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('login') }}">Login</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('upload') }}">Clustering</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('index') }}">Prediction</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('chart') }}">Analysis</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      
-
     </div>
   </header><!-- End Header -->
 
+  <!-- Spacer to offset fixed header -->
+  <div style="height: 80px;"></div>
 
-   <!-- ======= Hero Section ======= -->
-  <section id="hero">
+  <!-- ======================================== -->
+  <!-- ============ Hero Section ============= -->
+  <!-- ======================================== -->
+  <section id="hero" class="d-flex align-items-center">
     <div class="hero-container" data-aos="fade-up">
       <h1>Heart Attack Prediction using Retinal Images</h1>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
@@ -91,89 +80,111 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
+    <!-- ======================================== -->
+    <!-- ============ About Section ============ -->
+    <!-- ======================================== -->
     <section id="about" class="about">
       <div class="container">
 
         <div class="row no-gutters">
+          <!-- Text Content -->
           <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
-            <div class="content">
+            <div class="content p-4">
               <h3>Heart Attack Prediction</h3>
               <p>
-                In this project, we propose an intelligent system to detect and distinguish Heart Attack from Eye Images by deep learning techniques.
+                We propose an intelligent system to detect and distinguish heart attack risk
+                from fundus images using advanced deep learning techniques.
               </p>
               <a href="#" class="about-btn">More Info <i class="bx bx-chevron-right"></i></a>
             </div>
           </div>
+
+          <!-- Features Boxes -->
           <div class="col-xl-7 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
+            <div class="icon-boxes d-flex flex-column justify-content-center p-4">
               <div class="row">
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                   <i class="bx bx-receipt"></i>
                   <h4>Recurrent Neural Network</h4>
-                  <p> Deep Learning algorithms store information in the same manner as the human brain does, but on a much smaller scale .</p>
+                  <p>Models temporal dependencies in sequential data for robust prediction.</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                   <i class="bx bx-cube-alt"></i>
                   <h4>98% Accuracy</h4>
-                  <p>In our system will consider dropout rate, learning rate, kernel size and
-optimizer hyper parameter.</p>
+                  <p>Hyperparameter tuning with dropout, learning rate, and optimizer selection.</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                   <i class="bx bx-images"></i>
-                  <h4>6000+ Clinical Data</h4>
-                  <p>Multiple data sets used for evaluation and RNN Ensembles are used to improve accuracy</p>
+                  <h4>6000+ Clinical Cases</h4>
+                  <p>Extensive fundus image dataset with ensemble modeling for reliability.</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                   <i class="bx bx-shield"></i>
-                  <h4>Web Application</h4>
-                  <p>More Intractive Flask Based Web Applications</p>
+                  <h4>Flask Web App</h4>
+                  <p>User-friendly interface for image upload and prediction display.</p>
                 </div>
               </div>
-            </div><!-- End .content-->
+            </div><!-- End .icon-boxes -->
           </div>
         </div>
 
       </div>
     </section><!-- End About Section -->
 
-
-<center>
-   <div class="container col-sm-6 img-form">
+    <!-- ======================================== -->
+    <!-- ======== Clustering Upload Form ======= -->
+    <!-- ======================================== -->
+    <section id="clustering" class="my-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-6 img-form" data-aos="fade-up">
             <form action="/success" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label>
-                        <h3>Upload Image</h3>
-                    </label>
 
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">
-
-                                Browse… <input type="file" id="imgInp" class="form-control " name="file"
-                                    onchange="validateFileType()" accept=".jpg,.png" required>
-                            </span>
-                        </span>
-                        <input type="text" id="imagePath" class="form-control height-adj" readonly >
-                    </div>
-
-                    <img id='img-upload' />
-                    <div class="input-group" style="width: 100%">
-                    <label><h4>
-                        Number of Clusters
-                    </h4></label>
-                    <input type="number" class="form-control height-adj" id="points" name="cluster" step="1" min="0" required>
-                    </div>
-                    <div class=submit>
-                    <button type="submit" class="btn btn-default" value="Submit" data-toggle="modal"
-                        data-target="#myModal">Submit</button> 
-                    </div>
-                    
-                    
+              <!-- File Input -->
+              <div class="mb-3">
+                <label class="form-label"><h3>Upload Image</h3></label>
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <span class="btn btn-secondary btn-file">
+                      Browse… <input type="file" id="imgInp" name="file" accept=".jpg,.png" required onchange="validateFileType()">
+                    </span>
+                  </span>
+                  <input type="text" id="imagePath" class="form-control" readonly>
                 </div>
+                <img id="img-upload" class="img-fluid mt-2" alt="Image preview" />
+              </div>
+
+              <!-- Number of Clusters -->
+              <div class="mb-3">
+                <label for="points" class="form-label"><h4>Number of Clusters</h4></label>
+                <input type="number" id="points" name="cluster" class="form-control" min="0" step="1" required>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
             </form>
-            </div>
-<!-- Vendor JS Files -->
+          </div>
+        </div>
+      </div>
+    </section><!-- End Clustering Form -->
+
+  </main>
+
+  <!-- ======================================== -->
+  <!-- ============ Footer Section =========== -->
+  <!-- ======================================== -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container text-center">
+      <small>&copy; 2025 RetinaScope Project. All Rights Reserved.</small>
+    </div>
+  </footer><!-- End Footer -->
+
+  <!-- ======================================== -->
+  <!-- ======= Vendor JS Files ============== -->
+  <!-- ======================================== -->
   <script src="../static/vendor/aos/aos.js"></script>
   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
@@ -181,11 +192,11 @@ optimizer hyper parameter.</p>
   <script src="../static/vendor/php-email-form/validate.js"></script>
   <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Template Main JS File -->
+  <!-- ======================================== -->
+  <!-- ===== Additional Custom JS =========== -->
+  <!-- ======================================== -->
   <script src="../static/js/main.js"></script>
 
 </body>
 
 </html>
-
-
