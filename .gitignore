@@ -1,0 +1,103 @@
+*.pb
+__pycache__
+Documents
+dataset
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.python-version
+
+# IDE / editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables / secrets
+.env
+*.env
+
+# Logs
+logs/
+*.log
+
+# Database files
+*.sqlite3
+*.db
+
+# Model checkpoints & weights
+*.h5
+*.ckpt
+*.pth
+*.pt
+*.tflite
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# Pip cache / install logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Skip raw datasets and exported docs
+/dataset/
+/Documents/
+/Test Images/
+
+# Python caches
+__pycache__/
+
+# Flask/Django instance folders (if you have any)
+/instance/
+
+# Model artifacts & checkpoints
+*.h5
+*.ckpt
+*.pth
+*.pt
+*.tflite
+*.pb
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Environment & dependency folders
+venv/
+.env
+
+# Log files
+*.log
+logs/
+
+# Coverage
+.coverage
+htmlcov/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Tooling
+.dvc/
