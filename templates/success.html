@@ -1,59 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <!-- ======================================== -->
-  <!-- ======= Child Template: results.html ===== -->
-  <!-- ======================================== -->
-  {#
-    This template extends the base layout and injects the generated
-    results images alongside a call-to-action button.
-  #}
-  {% extends "layout.html" %}
-
-  {% block content %}
-    <!-- Results Header -->
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h2>Heart Attack Prediction Results</h2>
-      </div>
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h2>Heart Attack Prediction using Retinal Images</h2>
     </div>
-
-    <!-- Results Images Section -->
-    <div class="container mb-4">
-      <table class="table-borderless">
+</div>
+<div class="container">
+    <table>
         <tr>
-          <!-- Original Retinal Image -->
-          <td>
-            <img
-              class="plot img-fluid"
-              src="{{ url_for('static', filename='images/orig_image.jpg') }}"
-              alt="Original Retinal Image"
-            >
-          </td>
-
-          <!-- Spacer Column -->
-          <td class="px-4 align-middle"></td>
-
-          <!-- EM Clustering Result -->
-          <td>
-            <img
-              class="plot img-fluid"
-              src="{{ url_for('static', filename='images/em_image.jpg') }}"
-              alt="EM Clustering Result"
-            >
-          </td>
+            <td>
+                <img class="plot" src="{{ url_for('static', filename='images/orig_image.jpg') }}" alt="">
+            </td>
+            <td colspan="2">
+                <br/>
+            </td>
+            <td>
+                <img class="plot" src="{{ url_for('static', filename='images/em_image.jpg') }}" alt="">         
+            </td>
         </tr>
-      </table>
+    </table>
+
     </div>
 
-    <!-- Next Step Call-to-Action -->
-    <section id="cta" class="text-center my-4">
-      <a
-        class="btn btn-primary btn-lg"
-        href="{{ url_for('index') }}"
-      >
-        Next
-      </a>
-    </section>
-  {% endblock content %}
+<!-- ======= Cta Section ======= -->
+                  <center>   <a class="cta-btn" href="index">Next</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+
+			    </div>
+
+{% endblock content %}

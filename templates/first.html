@@ -2,9 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- ======================================== -->
-  <!-- ============ Metadata Section ========== -->
-  <!-- ======================================== -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -12,20 +9,14 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- ======================================== -->
-  <!-- ============= Favicon Files =========== -->
-  <!-- ======================================== -->
+  <!-- Favicons -->
   <link href="../static/img/favicon.png" rel="icon">
   <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- ======================================== -->
-  <!-- ============ Google Fonts ============= -->
-  <!-- ======================================== -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- ======================================== -->
-  <!-- ============ Vendor CSS Files ========= -->
-  <!-- ======================================== -->
+  <!-- Vendor CSS Files -->
   <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="../static/vendor/aos/aos.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,143 +25,111 @@
   <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- ======================================== -->
-  <!-- =========== Template CSS File ========= -->
-  <!-- ======================================== -->
+  <!-- Template Main CSS File -->
   <link href="../static/css/style.css" rel="stylesheet">
 
-  <!--
-    =======================================================
-    * Template Name: Restaurantly - v3.0.1
-    * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ========================================================
-  -->
+  <!-- =======================================================
+  * Template Name: Restaurantly - v3.0.1
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
 
-  <!-- ======================================== -->
-  <!-- ============ Top Bar Section =========== -->
-  <!-- ======================================== -->
+  <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-center justify-content-md-between">
-      <!-- You can add contact info or social links here -->
+
+       
+
+      
     </div>
   </div>
 
-  <!-- ======================================== -->
-  <!-- ============ Header Section ============ -->
-  <!-- ======================================== -->
-  <header id="header" class="fixed-top d-flex align-items-center">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+    
+      <h1 class="col-lg-8"><a href="index.html"> <span>Heart Attack Prediction</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <!-- ===== Site Logo / Title ===== -->
-      <h1 class="col-lg-8">
-        <a href="index.html">
-          <span>Heart Attack Prediction</span>
-        </a>
-      </h1>
-      <!-- Uncomment below to use image logo instead:
-      <a href="index.html" class="logo me-auto me-lg-0">
-        <img src="assets/img/logo.png" alt="" class="img-fluid">
-      </a>
-      -->
-
-      <!-- ===== Navigation Menu ===== -->
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{ url_for('first') }}">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ url_for('login') }}">Login</a></li>
+          <li><a class="nav-link scrollto active" href="{{ url_for('first')}}">Home</a></li>
+           
+          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
+		         
+        
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-      <!-- .navbar -->
+      </nav><!-- .navbar -->
+      
 
     </div>
-  </header>
-  <!-- End Header -->
+  </header><!-- End Header -->
 
-  <!-- ======================================== -->
-  <!-- ============ Hero Section ============= -->
-  <!-- ======================================== -->
+  <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">
-          <!-- Main Heading ===== -->
           <h1>Heart Attack Prediction using Retinal Images</h1>
           
-          <!-- Call-to-Action Buttons ===== -->
           <div class="btns">
             <a href="#about" class="btn-menu animated fadeInUp scrollto">Abstract</a>
+           
           </div>
         </div>
+        
+
       </div>
     </div>
-  </section>
-  <!-- End Hero -->
+  </section><!-- End Hero -->
 
-  <!-- ======================================== -->
-  <!-- ============ Main Content ============= -->
-  <!-- ======================================== -->
   <main id="main">
 
-    <!-- ======================================== -->
-    <!-- ============ About Section ============ -->
-    <!-- ======================================== -->
+    <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-          <!-- Image Column (optional) ===== -->
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
-            <!-- You can insert a representative image here -->
+            
           </div>
-
-          <!-- Text Column ===== -->
-          <div class="col-lg-4 ml-auto" style="margin-left:360px;">
-            <br><br>
-            <!-- Abstract Text ===== -->
-            <p>
-              <strong>ABSTRACT</strong><br>
-              In this project, we propose an intelligent system to detect and distinguish
-              Vitamin Deficiency from Human Tissue by deep learning techniques. At first,
-              images are clustered to segment out the lesion. Our aim is to test the effectiveness
-              of the proposed segmentation technique, extract the most suitable features,
-              and compare the classification results with other methods. A deep neural network
-              is then utilized for the classification of stomach cancer images.
+         <div class="col-lg-4 ml-auto" style="margin-left:360px;">
+            			 </div>
+			 </br>
+			 </br>
+            <p >
+             ABSTRACT
+- In this project, we propose an intelligent system to detect and distinguish Vitamin Deficiency from Human Tissue by deep learning techniques. At first, image clustering into segment out the lesion. Our aim is to test the effectiveness of the proposed segmentation technique, extract the most suitable features, and compare the classification results with the other techniques Deep neural network is utilized for the classification of Stomach cancer Images.
             </p>
-          </div>
+             
+          
         </div>
 
       </div>
-    </section>
-    <!-- End About Section -->
+     
 
-  </main>
-  <!-- End Main Content -->
+   
 
-  <!-- ======================================== -->
-  <!-- ============ Footer Section =========== -->
-  <!-- ======================================== -->
-  <footer class="bg-dark text-light py-4">
-    <div class="container text-center">
-      <small>&copy; 2025 RetinaScope Project. All Rights Reserved.</small>
-    </div>
-  </footer>
+   
+  <!-- ======= Footer ======= -->
   <!-- End Footer -->
 
-  <!-- ======================================== -->
-  <!-- ===== Vendor JS & Template JS Files ==== -->
-  <!-- ======================================== -->
+   
+
+  <!-- Vendor JS Files -->
   <script src="../static/vendor/aos/aos.js"></script>
   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../static/vendor/php-email-form/validate.js"></script>
   <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+
   <!-- Template Main JS File -->
   <script src="../static/js/main.js"></script>
 
