@@ -30,7 +30,52 @@
 
   <!-- Template Main CSS File -->
   <link href="../static/css/style.css" rel="stylesheet">
+  <style>
+        /* 1. Transparent → solid bg on scroll */
+    .header-transparent {
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+    .header-scrolled {
+      background: rgba(0, 0, 0, 0.85) !important;
+    }
 
+    /* 2. Animated underline on nav-links */
+    #navbar .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    #navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+    #navbar .nav-link:hover::after,
+    #navbar .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* 3. Toggler styling */
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    /* 4. Button CTA hover */
+    .btn-primary {
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;  /* darker shade */
+      transform: translateY(-1px);
+    }
+
+  </style>
   <!-- =======================================================
   * Template Name: Squadfree - v4.6.0
   * Template URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
@@ -45,44 +90,150 @@
   
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-transparent">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>Heart Attack Prediction</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="{{ url_for('first')}}">Home</a></li>
-           
-          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
-
-          <li><a class="nav-link scrollto" href="{{ url_for('index')}}">Prediction</a></li>
-
-
-          <li><a class="nav-link scrollto" href="{{ url_for('chart')}}">Analysis</a></li>
-
-		         
-        
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-      
-
+    <div class="container-fluid px-4 d-flex align-items-center justify-content-between">
+  
+      <!-- Logo + Brand -->
+      <a href="{{ url_for('first') }}" class="logo d-flex align-items-center">
+        <!-- Optional: swap in your logo image -->
+        <!-- <img src="../static/img/logo.png" alt="Logo" style="height: 40px;" class="me-2"> -->
+        <h1 class="text-light mb-0">Heart Attack Prediction</h1>
+      </a>
+  
+      <!-- Navbar -->
+      <nav id="navbar" class="navbar navbar-expand-lg">
+        <!-- Mobile toggler -->
+        <button class="navbar-toggler border-0 text-light" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+  
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('first') }}">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('upload') }}">Upload</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light active" href="{{ url_for('success') }}">Result</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('index') }}">Prediction</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('chart') }}">Analysis</a>
+            </li>
+            <!-- Example CTA button on right -->
+            <!-- <li class="nav-item ms-3">
+              <a href="{{ url_for('login') }}" class="btn btn-primary btn-sm py-2 px-3">
+                Sign In
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+  
     </div>
-  </header><!-- End Header -->
+  </header>
 
 
    <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container" data-aos="fade-up">
-      <h1>Heart Attack Prediction using Retinal Images</h1>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
-    </div>
-  </section><!-- End Hero -->
+<section
+   id="hero"
+   class="d-flex align-items-center py-5"
+   style="
+     position: relative;
+     background: url('../static/img/heart3.jpg') center/cover no-repeat;
+   "
+ >
+   <div
+     class="overlay"
+     style="
+       position: absolute;
+       top: 0; left: 0;
+       width: 100%; height: 100%;
+       background: rgba(10, 25, 75, 0.6);
+       z-index: 0;
+     "
+   ></div>
+
+   <div class="container position-relative" style="z-index:1;">
+     <div class="row justify-content-center">
+       <div class="col-lg-8">
+         <div
+           class="card rounded-4 p-5 shadow-lg text-white"
+           style="
+             background: rgba(13, 110, 253, 0.85);
+             backdrop-filter: blur(8px);
+             border: none;
+           "
+         >
+           <!-- Title with icon -->
+           <h3
+             class="card-title text-center mb-4"
+             style="
+               border-bottom: 2px solid rgba(255,255,255,0.4);
+               padding-bottom: 0.5rem;
+             "
+           >
+             <i class="bi bi-heart-pulse-fill me-2"></i>
+             Prediction Results
+           </h3>
+
+           <!-- Side-by-side scans -->
+           <div class="row g-4 mb-4">
+             <div class="col-sm-6 text-center">
+               <img
+                 src="{{ url_for('static', filename='images/orig_image.jpg') }}"
+                 class="img-fluid rounded mb-3"
+                 alt="Original Scan"
+                 style="max-height: 200px;"
+               />
+               <p class="mb-0">Original Retinal Scan</p>
+             </div>
+             <div class="col-sm-6 text-center">
+               <img
+                 src="{{ url_for('static', filename='images/em_image.jpg') }}"
+                 class="img-fluid rounded mb-3"
+                 alt="Processed Scan"
+                 style="max-height: 200px;"
+               />
+               <p class="mb-0">Processed Image</p>
+             </div>
+           </div>
+
+           <hr style="border-color: rgba(255,255,255,0.4);" />
+
+           <!-- Action button -->
+           <div class="d-grid">
+             <a
+               href="{{ url_for('index') }}"
+               class="btn btn-lg fw-semibold"
+               style="
+                 background-color: #0d6efd;
+                 color: #fff;
+                 transition: background-color 0.3s;
+               "
+               onmouseover="this.style.backgroundColor='#084298';"
+               onmouseout="this.style.backgroundColor='#0d6efd';"
+             >
+               <i class="bi bi-upload me-2"></i>
+               Upload Another Scan
+             </a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+
+<!-- End Hero -->
 
   <main id="main">
 
@@ -191,13 +342,11 @@ optimizer hyper parameter.</p>
         <!-- <div class="page-header format-header jumbotron">
     <h2>Clustering</h2>
   </div> -->
-        <div>
-         
-                {% block content %}
-                {% endblock content %}
-                
-                </div>
-                </div>
+        <!-- <div>
+          {% block content %}
+          {% endblock content %}  
+        </div> -->
+    </div>
 
                   
 

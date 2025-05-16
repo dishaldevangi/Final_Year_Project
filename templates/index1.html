@@ -30,7 +30,52 @@
 
   <!-- Template Main CSS File -->
   <link href="../static/css/style.css" rel="stylesheet">
+  <style>
+        /* 1. Transparent → solid bg on scroll */
+    .header-transparent {
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+    .header-scrolled {
+      background: rgba(0, 0, 0, 0.85) !important;
+    }
 
+    /* 2. Animated underline on nav-links */
+    #navbar .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    #navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+    #navbar .nav-link:hover::after,
+    #navbar .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* 3. Toggler styling */
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    /* 4. Button CTA hover */
+    .btn-primary {
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;  /* darker shade */
+      transform: translateY(-1px);
+    }
+
+  </style>
   <!-- =======================================================
   * Template Name: Squadfree - v4.6.0
   * Template URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
@@ -47,48 +92,127 @@
   
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-transparent">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container-fluid px-4 d-flex align-items-center justify-content-between">
+  
+      <!-- Logo + Brand -->
+      <a href="{{ url_for('first') }}" class="logo d-flex align-items-center">
+        <!-- Optional: swap in your logo image -->
+        <!-- <img src="../static/img/logo.png" alt="Logo" style="height: 40px;" class="me-2"> -->
+        <h1 class="text-light mb-0">Heart Attack Prediction</h1>
+      </a>
+  
+      <!-- Navbar -->
+      <nav id="navbar" class="navbar navbar-expand-lg">
+        <!-- Mobile toggler -->
+        <button class="navbar-toggler border-0 text-light" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+  
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('first') }}">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light active" href="{{ url_for('upload') }}">Upload</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('success') }}">Result</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('index') }}">Prediction</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('chart') }}">Analysis</a>
+            </li>
+            <!-- Example CTA button on right -->
+            <!-- <li class="nav-item ms-3">
+              <a href="{{ url_for('login') }}" class="btn btn-primary btn-sm py-2 px-3">
+                Sign In
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+  
+    </div>
+  </header>
+  
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>Heart Attack Prediction</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center" 
+         style="background: url('../static/img/heart2.jpg') center/cover no-repeat; position: relative;">
+  <!-- dark overlay -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);"></div>
+
+  <div class="container position-relative" style="z-index:1;">
+    <div class="row align-items-center">
+
+      <!-- Left: Heading & Subtext -->
+      <div class="col-lg-6 text-white text-center text-lg-start mb-5 mb-lg-0">
+        <h1 class="display-4 fw-bold">Heart Attack Prediction</h1>
+        <h2 class="h5 mb-4">Upload your retinal scan below to get an AI-powered cardiac risk assessment in under a minute.</h2>
       </div>
 
+      <!-- Right: Upload Widget -->
+      <div class="col-lg-6">
+        <div class="card bg-white bg-opacity-90 rounded-4 p-4 shadow-lg mx-auto" style="max-width: 400px;">
+          <!-- Icon + Title -->
+          <div class="text-center mb-3">
+            <i class="bi bi-card-image fs-1 text-primary"></i>
+            <h5 class="mt-2 mb-1 text-dark">Upload Retinal Scan</h5>
+          </div>
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="{{ url_for('first')}}">Home</a></li>
-           
-          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
+          <!-- Form -->
+          <form action="/success" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="imgInp" class="form-label text-dark">
+                <i class="bi bi-upload me-1"></i>Choose Image
+              </label>
+              <input type="file"
+                     class="form-control text-dark"
+                     id="imgInp"
+                     name="file"
+                     accept=".jpg,.png"
+                     onchange="validateFileType()"
+                     required>
+            </div>
 
-<li><a class="nav-link scrollto" href="{{ url_for('upload')}}">Clustering</a></li>
+            <img id="img-upload"
+                 class="img-fluid rounded mb-3"
+                 alt="Preview"
+                 style="max-height: 200px; display: none;" />
 
+            <div class="mb-3">
+              <label for="points" class="form-label text-dark">
+                <i class="bi bi-gear-fill me-1"></i>Number of Clusters
+              </label>
+              <input type="number"
+                     class="form-control text-dark"
+                     id="points"
+                     name="cluster"
+                     min="1"
+                     step="1"
+                     required>
+            </div>
 
-          <li><a class="nav-link scrollto" href="{{ url_for('index')}}">Prediction</a></li>
-
-
-          <li><a class="nav-link scrollto" href="{{ url_for('chart')}}">Analysis</a></li>
-
-		         
-        
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-      
+            <button type="submit" class="btn btn-primary w-100"value="Submit" data-toggle="modal" data-target="#myModal">
+              Analyze Now
+            </button>
+          </form>
+        </div>
+      </div>
 
     </div>
-  </header><!-- End Header -->
-
-
-   <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container" data-aos="fade-up">
-      <h1>Heart Attack Prediction using Retinal Images</h1>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
-    </div>
-  </section><!-- End Hero -->
-
+  </div>
+</section>
+<!-- End Hero -->
   <main id="main">
 
     <!-- ======= About Section ======= -->
@@ -137,42 +261,6 @@ optimizer hyper parameter.</p>
       </div>
     </section><!-- End About Section -->
 
-
-<center>
-   <div class="container col-sm-6 img-form">
-            <form action="/success" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label>
-                        <h3>Upload Image</h3>
-                    </label>
-
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">
-
-                                Browse… <input type="file" id="imgInp" class="form-control " name="file"
-                                    onchange="validateFileType()" accept=".jpg,.png" required>
-                            </span>
-                        </span>
-                        <input type="text" id="imagePath" class="form-control height-adj" readonly >
-                    </div>
-
-                    <img id='img-upload' />
-                    <div class="input-group" style="width: 100%">
-                    <label><h4>
-                        Number of Clusters
-                    </h4></label>
-                    <input type="number" class="form-control height-adj" id="points" name="cluster" step="1" min="0" required>
-                    </div>
-                    <div class=submit>
-                    <button type="submit" class="btn btn-default" value="Submit" data-toggle="modal"
-                        data-target="#myModal">Submit</button> 
-                    </div>
-                    
-                    
-                </div>
-            </form>
-            </div>
 <!-- Vendor JS Files -->
   <script src="../static/vendor/aos/aos.js"></script>
   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -183,7 +271,21 @@ optimizer hyper parameter.</p>
 
   <!-- Template Main JS File -->
   <script src="../static/js/main.js"></script>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.getElementById('header');
+      const onScroll = () => {
+        if (window.scrollY > 50) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
+      };
+      window.addEventListener('scroll', onScroll);
+      onScroll();  // init on load
+    });
+  </script>
+  
 </body>
 
 </html>

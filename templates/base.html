@@ -19,14 +19,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
   <!-- Variables CSS Files. Uncomment your preferred color scheme -->
-  <link href="../static/css/variables.css" rel="stylesheet">
+  <!-- <link href="../static/css/variables.css" rel="stylesheet"> -->
   <!-- <link href="../static/css/variables-blue.css" rel="stylesheet"> -->
   <!-- <link href="../static/css/variables-green.css" rel="stylesheet"> -->
   <!-- <link href="../static/css/variables-orange.css" rel="stylesheet"> -->
@@ -35,18 +38,59 @@
   <!-- <link href="../static/css/variables-pink.css" rel="stylesheet"> -->
 
   <!-- Template Main CSS File -->
-  <link href="../static/css/main.css" rel="stylesheet">
-  <!-- =======================================================
-  * Template Name: Restaurantly - v3.0.1
-  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-        <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="{{ url_for('static', filename='css/main1.css') }}" rel="stylesheet">
+  <!-- <link href="../static/css/main.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">-->
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- <link href="{{ url_for('static', filename='css/main1.css') }}" rel="stylesheet"> -->
+  <style>
+        /* 1. Transparent → solid bg on scroll */
+    .header-transparent {
+      background: transparent;
+      transition: background 0.3s ease;
+
+      
+    }
+    .header-scrolled {
+      background: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    /* 2. Animated underline on nav-links */
+    #navbar .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    #navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+    #navbar .nav-link:hover::after,
+    #navbar .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* 3. Toggler styling */
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    /* 4. Button CTA hover */
+    .btn-primary {
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;  /* darker shade */
+      transform: translateY(-1px);
+    }
+  </style>
 </head>
 
 <body>
@@ -55,54 +99,136 @@
  
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-cente">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-
-      <h1 class="col-lg-8"><a href="index.html"> <span>Heart Attack Prediction</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="../static/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto" href="{{ url_for('first')}}">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
-		    <li><a class="nav-link scrollto" href="{{ url_for('upload')}}">upload</a></li>
-           
-		  <li class="dropdown"><a href="#"><span>prediction</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="{{ url_for('index')}}">Prediction</a></li>
-                    
-                </ul>
-              </li>
-			    <li class="dropdown"><a href="#"><span>Analysis</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="{{ url_for('chart')}}">Chart</a></li>
-                
-                </ul>
-              </li>
-		 
-           
-           </ul>
-          
-       
-     </nav>
-     
+  <header id="header" class="fixed-top header-transparent">
+    <div class="container-fluid px-4 d-flex align-items-center justify-content-between">
+  
+      <!-- Logo + Brand -->
+      <a href="{{ url_for('first') }}" class="logo d-flex align-items-center">
+        <!-- Optional image logo:
+        <img src="../static/img/logo.png" alt="Logo" style="height: 40px;" class="me-2">
+        -->
+        <h1 class="text-light mb-0">Heart Attack Prediction</h1>
+      </a>
+  
+      <!-- Navbar -->
+      <nav id="navbar" class="navbar navbar-expand-lg">
+        <!-- Mobile toggler -->
+        <button class="navbar-toggler border-0 text-light" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+  
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('first') }}">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('upload') }}">Upload</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('success') }}">Result</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light active" href="{{ url_for('index') }}">Prediction</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-light" href="{{ url_for('chart') }}">Analysis</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
     </div>
-  </header><!-- End Header -->
-
-  <section id="hero-animated" class="hero-animated d-flex align-items-center">
+  </header>
+  
+  <!-- End Header -->
+  <!-- <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
       <img src="../static/img/hero-carousel/hero-carousel-3.jpg" class="img-fluid animated">
       <h2>Welcome to <span>Heart Attack Predictor</span></h2>
       <p>An artificial intelligence tool that scans eyes can accurately predict a person's risk of heart disease in less than a minute.</p>
-      <div class="d-flex">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="https://www.youtube.com/channel/UCTw7pQ1y5AF1U24NVZTgkkg/videos" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-      </div>
     </div>
-  </section>
+  </section> -->
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center" 
+  style="background: url('../static/img/heart.jpg') center/cover no-repeat; position: relative;">
+  <!-- dark overlay -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);"></div>
 
+  <div class="container position-relative" style="z-index:1;">
+    <div class="row align-items-center">
+
+      <!-- Left: Heading & Subtext -->
+      <div class="col-lg-6 text-white text-center text-lg-start mb-5 mb-lg-0">
+        <h1 class="display-4 fw-bold">Heart Attack Prediction</h1>
+        <h2 class="h5 mb-4">Upload your retinal scan below to get an AI-powered cardiac risk assessment in under a minute.</h2>
+      </div>
+
+      <!-- Right: Upload Widget -->
+  <!-- Right: Upload & Result Widget -->
+  <div class="col-lg-6">
+    <div class="upload-widget mx-auto" style="max-width:400px;">
+
+      <!-- Upload form -->
+      <form id="upload-file" action="/success" method="post" enctype="multipart/form-data">
+        <label for="imageUpload"
+              class="btn btn-outline-secondary btn-block"
+              style="width:100%; padding: .75rem; font-weight:500;">
+          Choose Image…
+        </label>
+        <input type="file"
+              name="file"
+              id="imageUpload"
+              accept=".png, .jpg, .jpeg"
+              style="display:none;">
+      </form>
+
+      <!-- Preview + Predict -->
+      <div class="image-section text-center mt-3" style="display:none;">
+        <div class="img-preview mb-3">
+          <div id="imagePreview"
+              style="
+                width:100%; height:200px;
+                background-size:contain;
+                background-repeat:no-repeat;
+                background-position:center;
+                border:1px solid #ccc;
+                border-radius:.5rem;
+              ">
+          </div>
+        </div>
+        <button type="button"
+                id="btn-predict"
+                class="btn btn-primary btn-lg"
+                style="width:100%; font-size:1.1rem; padding:.75rem;">
+          Check Deficiency
+        </button>
+        <h3 id="result">
+	
+          <span> </span>
+        </h3>
+      </div>
+
+      <!-- Loading spinner -->
+      <div class="loader text-center mt-3" style="display:none;">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Hero -->
 
 
 
@@ -144,6 +270,20 @@
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Vendor JS Files
+  <script src="../static/vendor/aos/aos.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/vendor/php-email-form/validate.js"></script>
+  <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  Template Main JS File -->
+  <!-- <script src="../static/js/main.js"></script> -->
+
+
+    <!-- …other sections… -->
+
   <!-- Vendor JS Files -->
   <script src="../static/vendor/aos/aos.js"></script>
   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -152,5 +292,11 @@
   <script src="../static/vendor/php-email-form/validate.js"></script>
   <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
 
+  <!-- Page-specific scroll‐handler -->
+  <script src="{{ url_for('static', filename='js/main1.js') }}"></script>
+
   <!-- Template Main JS File -->
   <script src="../static/js/main.js"></script>
+
+</body>
+</html>

@@ -49,12 +49,12 @@
   </div>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-cente">
+  <!-- <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
     
       <h1 class="col-lg-8"><a href="index.html"> <span>Heart Attack Prediction</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      Uncomment below if you prefer to use an image logo
+      <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -65,29 +65,84 @@
         
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-      
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
-      <div class="row">
-        <div class="col-lg-8">
-          <h1>Heart Attack Prediction using Retinal Images</h1>
-          
-          <div class="btns">
-            <a href="#about" class="btn-menu animated fadeInUp scrollto">Abstract</a>
-           
-          </div>
-        </div>
-        
-
+      </nav>< .navbar
       </div>
+  </header> -->
+  <!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center" 
+         style="background: url('../static/img/home-bg.jpg') center/cover no-repeat; position: relative;">
+  <!-- dark overlay -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);"></div>
+
+  <div class="container position-relative" data-aos="fade-up" style="z-index:1;">
+    <div class="row align-items-center">
+
+      <!-- Left: Title + Subheading + Learn More -->
+      <div class="col-lg-6 text-center text-lg-start text-white">
+        <h1 class="display-4 fw-bold">Heart Attack Prediction<br><span class="text-primary">using Retinal Images</span></h1>
+        <p class="lead mb-4">
+          Upload your retinal scan and receive an AI-powered cardiac risk assessment in under a minute.
+        </p>
+        <a href="#about" class="btn btn-primary btn-lg me-3">Learn More</a>
+      </div>
+
+      <!-- Right: Login Widget -->
+      <div class="col-lg-4 offset-lg-2">
+        <div class="card bg-white bg-opacity-90 rounded-4 p-4 shadow-lg">
+          <!-- Icon + Title -->
+          <div class="text-center mb-4">
+            <i class="bi bi-shield-lock-fill fs-1 text-primary"></i>
+            <h5 class="mt-2 mb-1 text-dark">Member Login</h5>
+            <small class="text-muted">Enter your credentials to continue</small>
+          </div>
+
+          <!-- Form -->
+          <form action="{{ url_for('login') }}" method="post">
+            <div class="form-floating mb-3">
+              <input type="text"
+                     class="form-control text-dark"
+                     id="uname"
+                     name="username"
+                     placeholder="Username"
+                     required>
+              <label for="uname" class="text-dark">
+                <i class="bi bi-person-fill me-1"></i>Username
+              </label>
+            </div>
+            
+            <div class="form-floating mb-3">
+              <input type="password"
+                     class="form-control text-dark"
+                     id="pwd"
+                     name="password"
+                     placeholder="Password"
+                     required>
+              <label for="pwd" class="text-dark">
+                <i class="bi bi-key-fill me-1"></i>Password
+              </label>
+            </div>
+          
+            <div class="d-grid mb-3">
+              <input type="button" class="btn btn-primary btn-lg" value="Sign In" onclick="login()">
+            </div>
+
+            <div class="text-center">
+              <a href="#" class="link-secondary small">Forgot password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </div>
-  </section><!-- End Hero -->
+  </div>
+</section>
+<!-- End Hero -->
+
+<!-- End Hero -->
+
 
   <main id="main">
 
@@ -121,7 +176,20 @@
   <!-- End Footer -->
 
    
-
+  <script>
+    function login(){
+      var uname = document.getElementById("uname").value;
+      var pwd = document.getElementById("pwd").value;
+      if(uname == "admin" && pwd == "admin"){
+        alert("Login Success!");
+        window.location = "{{url_for('upload')}}";
+        return false;
+      }
+      else{
+        alert("Invalid Credentials!")
+      }
+    }
+  </script>
   <!-- Vendor JS Files -->
   <script src="../static/vendor/aos/aos.js"></script>
   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
